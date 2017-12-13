@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="hibernate.cfg.xml/Hibernate">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="ChengTai">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="more_schema"/>
+    <schema id="5" parent="1" name="mysql"/>
+    <schema id="6" parent="1" name="performance_schema"/>
+    <schema id="7" parent="1" name="sys"/>
+    <schema id="8" parent="1" name="Users"/>
+    <table id="9" parent="2" name="CARRIERS"/>
+    <table id="10" parent="2" name="COMPANY_INFO"/>
+    <table id="11" parent="2" name="PODs"/>
+    <table id="12" parent="2" name="SOURCE_HARBORs"/>
+    <table id="13" parent="2" name="TOTAL_INFO"/>
+    <column id="14" parent="9" name="carriers">
+      <Position>1</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="15" parent="9" name="pod_UNIQUE">
+      <ColNames>carriers</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="16" parent="9" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>carriers</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="17" parent="9" name="pod_UNIQUE">
+      <ColNames>carriers</ColNames>
+      <UnderlyingIndexName>pod_UNIQUE</UnderlyingIndexName>
+    </key>
+    <column id="18" parent="10" name="carriers">
+      <Position>1</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="19" parent="10" name="source_harbors">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="20" parent="10" name="free_time">
+      <Position>3</Position>
+      <DataType>text|0</DataType>
+    </column>
+    <column id="21" parent="10" name="rent">
+      <Position>4</Position>
+      <DataType>text|0</DataType>
+    </column>
+    <column id="22" parent="10" name="last_nodifoed">
+      <Position>5</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <index id="23" parent="10" name="carriers_idx">
+      <ColNames>carriers</ColNames>
+    </index>
+    <index id="24" parent="10" name="source_harbors_idx">
+      <ColNames>source_harbors</ColNames>
+    </index>
+    <foreign-key id="25" parent="10" name="carriers_fk_company_info">
+      <ColNames>carriers</ColNames>
+      <RefSchemaName>ChengTai</RefSchemaName>
+      <RefTableName>CARRIERS</RefTableName>
+      <RefColNames>carriers</RefColNames>
+    </foreign-key>
+    <foreign-key id="26" parent="10" name="source-harbor_fk_company_info">
+      <ColNames>source_harbors</ColNames>
+      <RefSchemaName>ChengTai</RefSchemaName>
+      <RefTableName>SOURCE_HARBORs</RefTableName>
+      <RefColNames>source_harbors</RefColNames>
+    </foreign-key>
+    <column id="27" parent="11" name="pods">
+      <Position>1</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="28" parent="11" name="pod_UNIQUE">
+      <ColNames>pods</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="29" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>pods</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="30" parent="11" name="pod_UNIQUE">
+      <ColNames>pods</ColNames>
+      <UnderlyingIndexName>pod_UNIQUE</UnderlyingIndexName>
+    </key>
+    <column id="31" parent="12" name="source_harbors">
+      <Position>1</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="32" parent="12" name="idSource_harbor_UNIQUE">
+      <ColNames>source_harbors</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="33" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>source_harbors</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="34" parent="12" name="idSource_harbor_UNIQUE">
+      <ColNames>source_harbors</ColNames>
+      <UnderlyingIndexName>idSource_harbor_UNIQUE</UnderlyingIndexName>
+    </key>
+    <column id="35" parent="13" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="36" parent="13" name="carriers">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="37" parent="13" name="pods">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="38" parent="13" name="IMP_info">
+      <Position>4</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="39" parent="13" name="20GQ">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="40" parent="13" name="40GQ">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="41" parent="13" name="40HQ">
+      <Position>7</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="42" parent="13" name="remark">
+      <Position>8</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="43" parent="13" name="feeder">
+      <Position>9</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="44" parent="13" name="HK_CLS">
+      <Position>10</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="45" parent="13" name="ETP_HK">
+      <Position>11</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="46" parent="13" name="TT">
+      <Position>12</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="47" parent="13" name="extra_info">
+      <Position>13</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="48" parent="13" name="last_modified">
+      <Position>14</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <index id="49" parent="13" name="carriers_idx">
+      <ColNames>carriers</ColNames>
+    </index>
+    <index id="50" parent="13" name="id_UNIQUE">
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="51" parent="13" name="pods_idx">
+      <ColNames>pods</ColNames>
+    </index>
+    <key id="52" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="53" parent="13" name="id_UNIQUE">
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>id_UNIQUE</UnderlyingIndexName>
+    </key>
+    <foreign-key id="54" parent="13" name="carriers_fk_total_info">
+      <ColNames>carriers</ColNames>
+      <RefSchemaName>ChengTai</RefSchemaName>
+      <RefTableName>CARRIERS</RefTableName>
+      <RefColNames>carriers</RefColNames>
+    </foreign-key>
+    <foreign-key id="55" parent="13" name="pods_fk_total_info">
+      <ColNames>pods</ColNames>
+      <RefSchemaName>ChengTai</RefSchemaName>
+      <RefTableName>PODs</RefTableName>
+      <RefColNames>pods</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>
