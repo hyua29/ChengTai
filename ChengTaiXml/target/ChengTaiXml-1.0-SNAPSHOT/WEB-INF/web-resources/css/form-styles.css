@@ -1,0 +1,54 @@
+#resultTable {
+    width: 100%;
+    height: 70%;
+    overflow: auto;
+}
+
+#resultTable table {
+    border-collapse: collapse;
+    border: 1px solid gray;
+    width: 110%;
+}
+
+#resultTable th {
+    overflow: auto;
+    font-size: 70%;
+    padding-top: 0.3%;
+    padding-bottom: 0.3%;
+    background: #337ab7;
+    border: 1px solid gray;
+    color: #FFFFFF;
+}
+
+#resultTable tr {
+    text-align: center;
+
+}
+
+#resultTable td {
+    overflow: auto;
+    font-size: 70%;
+    padding-top: 0.3%;
+    padding-bottom: 0.3%;
+    border: 1px solid gray;
+}
+
+#resultTable tr:nth-child(even) {
+    background: #FFFFFF;
+}
+
+#resultTable tr:nth-child(odd) {
+    background: #BBBBBB;
+}
+
+.action {
+    color: #337ab7;
+}
+
+.action:hover {
+    cursor: pointer;
+}
+
+#searchTable {
+    border: 1px solid gray;
+}
