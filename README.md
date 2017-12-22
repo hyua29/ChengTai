@@ -1,2 +1,2 @@
 # ChengTai
-A company search system
+A system used to search lane infomation.
