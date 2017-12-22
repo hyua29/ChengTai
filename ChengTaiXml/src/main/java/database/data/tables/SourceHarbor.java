@@ -26,7 +26,7 @@ public class SourceHarbor{
     }
 
     public String getSourceHbWithoutSpace() {
-        return sourceHarborName.replace(" ", "-");
+        return sourceHarborName.replace(" ", "_");
     }
 
     @Override

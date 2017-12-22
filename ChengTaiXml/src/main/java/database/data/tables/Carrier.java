@@ -24,11 +24,15 @@ public class Carrier {
     }
 
     public String getCarrierWithoutSpace() {
-        return carrierName.replace(" ", "-");
+        String temp = carrierName.replace(" ", "_").replace("-", "_");
+        System.out.println(temp);
+        return temp;
     }
 
     @Override
     public String toString() {
         return this.carrierName;
     }
+
 }
+

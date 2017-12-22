@@ -24,7 +24,6 @@
             </tr>
             <c:forEach var="podBatch" items="${PODBatches}">
             <tr id="${podBatch.podNameWithoutSpace}">
-
                 <td>${podBatch.country}</td>
                 <td>${podBatch.PODName}</td>
                 <td><button type="button" onclick="$(${podBatch.podNameWithoutSpace}).remove();">delete</button></td>
@@ -39,8 +38,9 @@
                 <th>Source Harbors</th>
             </tr>
             <c:forEach var="sourceHb" items="${sourceHbList}">
-                <tr>
+                <tr id="${sourceHb.sourceHbWithoutSpace}">
                     <td>${sourceHb.sourceHarborName}</td>
+                    <td><button type="button" onclick="$(${sourceHb.sourceHbWithoutSpace}).remove();">delete</button></td>
                 </tr>
             </c:forEach>
         </table>
@@ -52,13 +52,14 @@
                 <th>Carriers: </th>
             </tr>
             <c:forEach var="carrier" items="${carrierList}">
-                <tr>
+                <tr id="${carrier.carrierWithoutSpace}">
                     <td>${carrier.carrierName}</td>
+                    <td><button type="button" onclick="$(${carrier.carrierWithoutSpace}).remove();">delete</button></td>
                 </tr>
             </c:forEach>
         </table>
     </div>
-    <button type="button" onclick="$(this).remove();">delete me </button>
+
 </body>
 
 </html>
