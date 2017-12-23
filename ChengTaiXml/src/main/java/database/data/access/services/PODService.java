@@ -20,4 +20,10 @@ public class PODService {
         return podList;
 
     }
+
+    public Boolean deletePodByName(String podName) {
+
+        Boolean succeeded = podIpm.deleteByPODName(podName);
+        return succeeded;
+    }
 }

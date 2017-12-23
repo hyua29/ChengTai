@@ -16,15 +16,21 @@ public abstract class DAO {
     @Autowired
     protected SessionFactory sessionFactory;
 
+    /*
+    Not sure whether this works
+     */
     @Transactional
     protected Boolean runQuery(String queryStatement) {
         Boolean runSucceeded = true;
 
-        Session session = sessionFactory.getCurrentSession();
+        try {
+            Session session = sessionFactory.getCurrentSession();
 
-        Query query = session.createQuery(queryStatement);
-        query.executeUpdate();
-
+            Query query = session.createQuery(queryStatement);
+            query.executeUpdate();
+        } catch (Exception e) {
+            runSucceeded = false;
+        }
         return runSucceeded;
     }
 

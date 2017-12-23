@@ -192,7 +192,7 @@
             </table>
         </div>
     </div>
-
+<input type="date">
 </body>
 
 <script type="text/javascript">
@@ -213,7 +213,6 @@
             timeOut: 10000,
             success: function (data) {
                 console.log("update ajax succeeded");
-                console.log(data);
                 popUpdateForm(data);
             },
             error: function (e) {

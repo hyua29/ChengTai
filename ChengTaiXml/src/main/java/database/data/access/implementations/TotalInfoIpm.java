@@ -77,7 +77,6 @@ public class TotalInfoIpm extends DAO {
     public Boolean deleteById(int numId) {
 
         Boolean deleteSucceeded = true;
-        // get a session
         Session session = sessionFactory.getCurrentSession();
         try {
             Query query = session.createQuery("delete from TotalInfo where id=:id");

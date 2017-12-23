@@ -5,6 +5,7 @@ import AJAX.json.request.LaneSearch;
 import AJAX.json.respond.classes.LaneSearchRespond;
 import com.fasterxml.jackson.annotation.JsonView;
 import database.data.access.services.AJAXServices;
+import database.data.access.services.PODService;
 import database.data.access.services.TotalInfoService;
 import database.data.tables.TotalInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,9 @@ public class JSONController {
 
     @Autowired
     private TotalInfoService totalInfoService;
+
+    @Autowired
+    private PODService podService;
 
     @JsonView({View.Public.class})
     @RequestMapping(value="/json/get-pod", consumes="application/json")
@@ -45,13 +49,25 @@ public class JSONController {
 
         int idOfTotalInfo = Integer.parseInt(id);
         TotalInfo totalInfo = totalInfoService.getTotalInfoById(idOfTotalInfo);
-        System.out.println(totalInfo);
-
-        System.out.println("-------------------------");
-        System.out.println(id);
 
         return totalInfo;
     }
 
+    @JsonView({View.Public.class})
+    @RequestMapping(value="/json/delete-pod", consumes="application/json")
+    public @ResponseBody
+    String AJAXDeletePod(@RequestBody String podName) {
+
+        System.out.println("____________________________");
+        String podToDelete = podName.replace("_", " ").replace("\"", "");
+        Boolean succeeded = podService.deletePodByName(podToDelete);
+        System.out.println(podToDelete);
+        String respond;
+        if (succeeded)
+            respond = "{\"succeeded\":\"true\"}";
+        else
+            respond = "{\"succeeded\":\"false\"}";
+        return respond;
+    }
 
 }

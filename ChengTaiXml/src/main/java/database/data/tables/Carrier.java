@@ -25,7 +25,6 @@ public class Carrier {
 
     public String getCarrierWithoutSpace() {
         String temp = carrierName.replace(" ", "_").replace("-", "_");
-        System.out.println(temp);
         return temp;
     }
 

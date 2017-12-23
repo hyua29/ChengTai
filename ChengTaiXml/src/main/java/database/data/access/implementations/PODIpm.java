@@ -32,20 +32,26 @@ public class PODIpm extends DAO {
         return podList;
     }
 
-
+    @Transactional
     public Boolean deleteByPODName(String podName) {
+        Session session = sessionFactory.getCurrentSession();
+        Boolean succeeded = true;
 
-        String statement = "delete from POD where pods="+podName;
-
-        Boolean succeeded = runQuery(statement);
+        try{
+            Query query = session.createQuery("delete from POD where PODName=:pod");
+            query.setParameter("pod", podName);
+            query.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            succeeded = false;
+        }
 
         return succeeded;
     }
 
-
     public Boolean deleteByCountryName(String countryName) {
 
-        String statement = "delete from POD where pods="+countryName;
+        String statement = "delete from POD where countries="+countryName;
 
         Boolean succeeded = runQuery(statement);
 

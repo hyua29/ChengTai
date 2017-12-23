@@ -25,7 +25,6 @@ public class HarborIpm extends DAO {
     public List<SourceHarbor> getAllHarbors() {
 
         Session session = sessionFactory.getCurrentSession();
-
         Query q = session.createQuery("from SourceHarbor");
         List<SourceHarbor> sourceHarborList = q.getResultList();
 

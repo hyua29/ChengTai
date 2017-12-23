@@ -15,7 +15,6 @@ public class CarrierIpm extends DAO {
     @Transactional
     public Carrier getSpecificCarrier(String carrierName) {
         Session session = sessionFactory.getCurrentSession();
-
         Carrier carrier = session.get(Carrier.class, carrierName);
 
         return carrier;
