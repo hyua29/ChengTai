@@ -1,5 +1,6 @@
 package database.data.access.implementations;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import database.data.access.implementations.parents.DAO;
 import database.data.tables.SourceHarbor;
 import org.hibernate.Session;
@@ -29,5 +30,23 @@ public class HarborIpm extends DAO {
         List<SourceHarbor> sourceHarborList = q.getResultList();
 
         return sourceHarborList;
+    }
+
+    @Transactional
+    public Boolean deleteHarborByName(String harborName) {
+        Session session = sessionFactory.getCurrentSession();
+        Boolean succeeded = true;
+
+        try{
+            Query query = session.createQuery("delete from SourceHarbor where sourceHarborName=:harbor");
+            query.setParameter("harbor", harborName);
+            query.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            succeeded = false;
+        }
+
+        return succeeded;
+
     }
 }

@@ -4,9 +4,7 @@ import AJAX.View;
 import AJAX.json.request.LaneSearch;
 import AJAX.json.respond.classes.LaneSearchRespond;
 import com.fasterxml.jackson.annotation.JsonView;
-import database.data.access.services.AJAXServices;
-import database.data.access.services.PODService;
-import database.data.access.services.TotalInfoService;
+import database.data.access.services.*;
 import database.data.tables.TotalInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +17,12 @@ public class JSONController {
 
     @Autowired
     private TotalInfoService totalInfoService;
+
+    @Autowired
+    HarborService harborService;
+
+    @Autowired
+    CarrierService carrierService;
 
     @Autowired
     private PODService podService;
@@ -70,4 +74,36 @@ public class JSONController {
         return respond;
     }
 
+    @JsonView({View.Public.class})
+    @RequestMapping(value="/json/delete-harbor", consumes="application/json")
+    public @ResponseBody
+    String AJAXDeleteHarbor(@RequestBody String harborName) {
+
+        String harborToDelete = harborName.replace("_", " ").replace("\"", "");
+        Boolean succeeded = harborService.deleteHarborByName(harborToDelete);
+
+        String respond;
+        if (succeeded)
+            respond = "{\"succeeded\":\"true\"}";
+        else
+            respond = "{\"succeeded\":\"false\"}";
+        return respond;
+    }
+
+    @JsonView({View.Public.class})
+    @RequestMapping(value="/json/delete-carrier", consumes="application/json")
+    public @ResponseBody
+    String AJAXDeleteCarrier(@RequestBody String carrierName) {
+
+        System.out.println();
+        String harborToDelete = carrierName.replace("_", " ").replace("\"", "");
+        Boolean succeeded = carrierService.deleteHarborByName(harborToDelete);
+
+        String respond;
+        if (succeeded)
+            respond = "{\"succeeded\":\"true\"}";
+        else
+            respond = "{\"succeeded\":\"false\"}";
+        return respond;
+    }
 }

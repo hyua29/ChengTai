@@ -26,7 +26,7 @@
             <tr id="${podBatch.podNameWithoutSpace}">
                 <td>${podBatch.country}</td>
                 <td>${podBatch.PODName}</td>
-                <td><button type="button" onclick="ajaxDelete(${podBatch.podNameWithoutSpace}.id, ${podBatch.podNameWithoutSpace});">delete</button></td>
+                <td><button type="button" onclick="ajaxPodDelete(${podBatch.podNameWithoutSpace}.id, ${podBatch.podNameWithoutSpace});">delete</button></td>
             </tr>
             </c:forEach>
         </table>
@@ -40,7 +40,7 @@
             <c:forEach var="sourceHb" items="${sourceHbList}">
                 <tr id="${sourceHb.sourceHbWithoutSpace}">
                     <td>${sourceHb.sourceHarborName}</td>
-                    <td><button type="button" onclick="$(${sourceHb.sourceHbWithoutSpace}).remove();">delete</button></td>
+                    <td><button type="button" onclick="ajaxHarborDelete(${sourceHb.sourceHbWithoutSpace}.id, ${sourceHb.sourceHbWithoutSpace});">delete</button></td>
                 </tr>
             </c:forEach>
         </table>
@@ -54,7 +54,7 @@
             <c:forEach var="carrier" items="${carrierList}">
                 <tr id="${carrier.carrierWithoutSpace}">
                     <td>${carrier.carrierName}</td>
-                    <td><button type="button" onclick="$(${carrier.carrierWithoutSpace}).remove();">delete</button></td>
+                    <td><button type="button" onclick="ajaxCarrierDelete(${carrier.carrierWithoutSpace}.id, ${carrier.carrierWithoutSpace});">delete</button></td>
                 </tr>
             </c:forEach>
         </table>
@@ -64,11 +64,7 @@
 
 <script>
 
-    function test(element) {
-
-    }
-
-    function ajaxDelete(name, tagToDelete) {
+    function ajaxPodDelete(name, tagToDelete) {
         console.log(name);
         $.ajax({
             type: "POST",
@@ -96,5 +92,62 @@
 
         });
     }
+
+    function ajaxHarborDelete(name, tagToDelete) {
+        console.log(name);
+        $.ajax({
+            type: "POST",
+            contentType: "application/json",
+            url: "${pageContext.request.contextPath}/json/delete-harbor",
+            data: JSON.stringify(name),
+            dataType: 'json',
+            timeOut: 10000,
+            success: function (data) {
+                if(data.succeeded=="true") {
+                    console.log("delete ajax succeeded");
+                    $(tagToDelete).remove();
+                }
+                else
+                    console.log("failed to delete");
+            },
+            error: function (e) {
+                console.log("delete ajax failed");
+                console.log(e);
+            },
+            done: function (e) {
+                console.log("DONE");
+                console.log(e);
+            }
+        });
+    }
+
+    function ajaxCarrierDelete(name, tagToDelete) {
+        console.log(name);
+        $.ajax({
+            type: "POST",
+            contentType: "application/json",
+            url: "${pageContext.request.contextPath}/json/delete-carrier",
+            data: JSON.stringify(name),
+            dataType: 'json',
+            timeOut: 10000,
+            success: function (data) {
+                if(data.succeeded=="true") {
+                    console.log("delete ajax succeeded");
+                    $(tagToDelete).remove();
+                }
+                else
+                    console.log("failed to delete");
+            },
+            error: function (e) {
+                console.log("delete ajax failed");
+                console.log(e);
+            },
+            done: function (e) {
+                console.log("DONE");
+                console.log(e);
+            }
+        });
+    }
+
 </script>
 </html>

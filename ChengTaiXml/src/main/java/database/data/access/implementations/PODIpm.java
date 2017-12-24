@@ -49,6 +49,7 @@ public class PODIpm extends DAO {
         return succeeded;
     }
 
+    @Transactional
     public Boolean deleteByCountryName(String countryName) {
 
         String statement = "delete from POD where countries="+countryName;

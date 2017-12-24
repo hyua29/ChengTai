@@ -2,6 +2,7 @@ package database.data.tables;
 
 import AJAX.View;
 import com.fasterxml.jackson.annotation.JsonView;
+import com.mysql.management.util.Str;
 
 import javax.persistence.Column;
 import javax.persistence.Id;

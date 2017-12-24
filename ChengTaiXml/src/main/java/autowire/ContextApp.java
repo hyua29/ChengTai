@@ -1,6 +1,5 @@
 package autowire;
 
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class ContextApp {

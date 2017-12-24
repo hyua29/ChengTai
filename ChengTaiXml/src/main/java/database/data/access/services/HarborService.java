@@ -18,4 +18,10 @@ public class HarborService {
 
         return sourceHarborList;
     }
+
+    public Boolean deleteHarborByName(String harborName) {
+
+
+        return harborIpm.deleteHarborByName(harborName);
+    }
 }

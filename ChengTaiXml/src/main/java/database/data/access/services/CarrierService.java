@@ -19,4 +19,10 @@ public class CarrierService {
 
         return carrierList;
     }
+
+    public Boolean deleteHarborByName(String harborToDelete) {
+
+        return carrierIpm.deleteCarrierByName(harborToDelete);
+    }
+    
 }

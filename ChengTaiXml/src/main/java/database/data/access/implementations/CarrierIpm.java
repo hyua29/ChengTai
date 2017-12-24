@@ -29,4 +29,21 @@ public class CarrierIpm extends DAO {
 
         return carrierList;
     }
+
+    @Transactional
+    public Boolean deleteCarrierByName(String carrierName){
+        Boolean succeeded = true;
+        Session session = sessionFactory.getCurrentSession();
+
+        try{
+            Query query = session.createQuery("delete from Carrier where carrierName=:carrier");
+            query.setParameter("carrier", carrierName);
+            query.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            succeeded = false;
+        }
+
+        return succeeded;
+    }
 }
