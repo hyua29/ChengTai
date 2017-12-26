@@ -23,7 +23,7 @@ public class SourceHarbor{
     }
 
     public void setSourceHarborName(String sourceHarborName) {
-        this.sourceHarborName = sourceHarborName;
+        this.sourceHarborName = sourceHarborName.toUpperCase();
     }
 
     public String getSourceHbWithoutSpace() {

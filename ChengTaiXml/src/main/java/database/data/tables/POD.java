@@ -28,7 +28,7 @@ public class POD {
     }
 
     public void setPODName(String PODName) {
-        this.PODName = PODName;
+        this.PODName = PODName.toUpperCase();;
     }
     public String getCountry() {
         return country;

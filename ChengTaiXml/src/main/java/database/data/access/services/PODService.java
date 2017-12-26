@@ -27,7 +27,7 @@ public class PODService {
         return succeeded;
     }
 
-    public Boolean addCarrier(POD pod) {
+    public Boolean addPod(POD pod) {
         return podIpm.addPOD(pod);
     }
 }

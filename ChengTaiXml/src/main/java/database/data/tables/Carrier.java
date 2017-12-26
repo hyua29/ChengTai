@@ -20,12 +20,11 @@ public class Carrier {
     }
 
     public void setCarrierName(String carrierName) {
-        this.carrierName = carrierName;
+        this.carrierName = carrierName.toUpperCase();
     }
 
     public String getCarrierWithoutSpace() {
-        String temp = carrierName.replace(" ", "_").replace("-", "_");
-        return temp;
+        return carrierName.replace(" ", "_").replace("-", "_");
     }
 
     @Override

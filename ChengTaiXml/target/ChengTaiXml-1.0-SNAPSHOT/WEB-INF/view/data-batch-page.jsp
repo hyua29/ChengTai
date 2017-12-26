@@ -11,6 +11,7 @@
 <head>
     <title>ChengTai</title>
     <script src="${pageContext.request.contextPath}/resources/js/jquery-1.12.4.js" ></script>
+    <script src="${pageContext.request.contextPath}/resources/js/helpers.js" ></script>
 
 </head>
 
@@ -18,10 +19,18 @@
 
 <div style="width: 66%; float: left;">
     <div style="float: left; width: 50%;">
+        <form action="${pageContext.request.contextPath}/admin/data-batch" method="post">
         <table id="deletable">
+            <button type="button" onclick="showForm('#podForm')">Add</button>
             <tr>
                 <th>Counties</th>
                 <th>PODs</th>
+            </tr>
+            <tr id="podForm" hidden="hidden">
+                <td hidden="hidden"><input id="isPod" name="isPod" value="false"></td>
+                <td><input style="width: 100%;" type="text" name="country"></td>
+                <td><input style="width: 100%;" type="text" name="pod"></td>
+                <td><input style="width: 100%;" type="submit" value="submit" onclick="$('#isPod').val('true')"></td>
             </tr>
             <c:forEach var="podBatch" items="${PODBatches}">
             <tr id="${podBatch.podNameWithoutSpace}">
@@ -31,12 +40,20 @@
             </tr>
             </c:forEach>
         </table>
+        </form>
     </div>
 
     <div style="float: right;width: 50%">
+        <form action="${pageContext.request.contextPath}/admin/data-batch" method="post">
         <table>
+            <button type="button" onclick="showForm('#harborForm')">Add</button>
             <tr>
                 <th>Source Harbors</th>
+            </tr>
+            <tr id="harborForm"  hidden="hidden">
+                <td hidden="hidden"><input id="isHarbor" name="isHarbor" value="false"></td>
+                <td><input style="width: 60%;" name="harbor" type="text">
+                <td><input style="width: 100%;" type="submit" value="submit" onclick="$('#isHarbor').val('true')"></td>
             </tr>
             <c:forEach var="sourceHb" items="${sourceHbList}">
                 <tr id="${sourceHb.sourceHbWithoutSpace}">
@@ -45,13 +62,21 @@
                 </tr>
             </c:forEach>
         </table>
+        </form>
     </div>
 </div>
 
     <div style="float: right; width: 33%;">
+        <form action="${pageContext.request.contextPath}/admin/data-batch" method="post">
         <table>
+            <button type="button" onclick="showForm('#carrierForm')">Add</button>
             <tr>
                 <th>Carriers: </th>
+            </tr>
+            <tr id="carrierForm" class="form" hidden="hidden">
+                <td hidden="hidden"><input id="isCarrier" name="isCarrier" value="false"></td>
+                <td><input style="width: 50%;" type="text" name="carrier"></td>
+                <td><input style="width: 100%;" type="submit" value="submit" onclick="$('#isCarrier').val('true')"></td>
             </tr>
             <c:forEach var="carrier" items="${carrierList}">
                 <tr id="${carrier.carrierWithoutSpace}">
@@ -60,8 +85,8 @@
                 </tr>
             </c:forEach>
         </table>
+        </form>
     </div>
-
 </body>
 
 <script>
@@ -150,6 +175,8 @@
             }
         });
     }
-
+    function showForm(id) {
+        $(id).removeAttr("hidden");
+    }
 </script>
 </html>

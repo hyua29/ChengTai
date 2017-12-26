@@ -15,3 +15,7 @@ function refresh() {
 function showDeleteWarning() {
     if(!(confirm('Are you sure you want to delete this'))) return false;
 }
+
+function showForm(id) {
+    $(id).removeAttr("hidden");
+}
