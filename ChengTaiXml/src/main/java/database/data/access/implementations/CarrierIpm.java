@@ -46,4 +46,18 @@ public class CarrierIpm extends DAO {
 
         return succeeded;
     }
+
+    @Transactional
+    public Boolean addCarrier(Carrier carrier) {
+        Boolean succeeded = true;
+
+        Session session =  sessionFactory.getCurrentSession();
+        try {
+            session.saveOrUpdate(carrier);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            succeeded = false;
+        }
+        return succeeded;
+    }
 }

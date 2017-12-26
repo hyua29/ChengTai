@@ -26,4 +26,8 @@ public class PODService {
         Boolean succeeded = podIpm.deleteByPODName(podName);
         return succeeded;
     }
+
+    public Boolean addCarrier(POD pod) {
+        return podIpm.addPOD(pod);
+    }
 }

@@ -1,5 +1,6 @@
 package database.data.access.services;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import database.data.access.implementations.CarrierIpm;
 import database.data.tables.Carrier;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,5 +25,9 @@ public class CarrierService {
 
         return carrierIpm.deleteCarrierByName(harborToDelete);
     }
-    
+
+    public Boolean addCarrier(Carrier carrier) {
+        return carrierIpm.addCarrier(carrier);
+    }
+
 }

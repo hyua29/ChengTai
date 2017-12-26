@@ -1,6 +1,7 @@
 package database.data.access.implementations;
 
 import com.sun.org.apache.xpath.internal.operations.Bool;
+import com.sun.xml.internal.fastinfoset.algorithm.BooleanEncodingAlgorithm;
 import database.data.access.implementations.parents.DAO;
 import database.data.tables.SourceHarbor;
 import org.hibernate.Session;
@@ -47,6 +48,19 @@ public class HarborIpm extends DAO {
         }
 
         return succeeded;
-
     }
+
+    @Transactional
+    public Boolean addHarbor(SourceHarbor sourceHarbor) {
+        Boolean succeeded = true;
+        Session session = sessionFactory.getCurrentSession();
+        try {
+            session.saveOrUpdate(sourceHarbor);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            succeeded = false;
+        }
+        return succeeded;
+    }
+
 }

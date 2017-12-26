@@ -60,5 +60,18 @@ public class PODIpm extends DAO {
 
     }
 
+    @Transactional
+    public Boolean addPOD(POD pod) {
+        Boolean succeeded = true;
+        Session session = sessionFactory.getCurrentSession();
+        try {
+            session.saveOrUpdate(pod);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            succeeded = false;
+        }
+        return succeeded;
+    }
+
 
 }

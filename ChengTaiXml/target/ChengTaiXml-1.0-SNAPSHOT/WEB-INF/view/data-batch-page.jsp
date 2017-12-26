@@ -121,7 +121,6 @@
         });
     }
 
-
     function ajaxCarrierDelete(name, tagToDelete) {
         console.log(name);
         $.ajax({
@@ -149,7 +148,6 @@
             }
         });
     }
-
 
 </script>
 </html>
