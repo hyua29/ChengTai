@@ -16,7 +16,8 @@
 
 <body>
 
-    <div>
+<div style="width: 66%; float: left;">
+    <div style="float: left; width: 50%;">
         <table id="deletable">
             <tr>
                 <th>Counties</th>
@@ -32,7 +33,7 @@
         </table>
     </div>
 
-    <div>
+    <div style="float: right;width: 50%">
         <table>
             <tr>
                 <th>Source Harbors</th>
@@ -45,8 +46,9 @@
             </c:forEach>
         </table>
     </div>
+</div>
 
-    <div>
+    <div style="float: right; width: 33%;">
         <table>
             <tr>
                 <th>Carriers: </th>

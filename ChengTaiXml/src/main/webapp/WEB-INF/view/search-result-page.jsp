@@ -50,51 +50,7 @@
                     <td>To:</td>
                     <td><form:input id="DateTo" path="dateTo" placeholder="yyyy-mm-dd" /> </td>
                 </tr>
-                <tr>
-                    <td>From: </td>
-                    <td>
-                        <form:select path="yearFrom">
-                            <c:forEach var="year" items="${dateToChoose.yearList}">
-                                <form:option value="${year}">${year}</form:option>
-                            </c:forEach>
-                        </form:select>
 
-                        <form:select path="monthFrom">
-                            <c:forEach var="month" items="${dateToChoose.monthList}">
-                                <form:option value="${month}">${month}</form:option>
-                            </c:forEach>
-                        </form:select>
-
-                        <form:select path="dayFrom">
-                            <c:forEach var="day" items="${dateToChoose.dayList}">
-                                <form:option value="${day}">${day}</form:option>
-                            </c:forEach>
-                        </form:select>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>To: </td>
-                    <td>
-                        <form:select path="yearTo">
-                            <c:forEach var="year" items="${dateToChoose.yearList}">
-                                <form:option value="${year}">${year}</form:option>
-                            </c:forEach>
-                        </form:select>
-
-                        <form:select path="monthTo">
-                            <c:forEach var="month" items="${dateToChoose.monthList}">
-                                <form:option value="${month}">${month}</form:option>
-                            </c:forEach>
-                        </form:select>
-
-                        <form:select path="dayTo">
-                            <c:forEach var="day" items="${dateToChoose.dayList}">
-                                <form:option value="${day}">${day}</form:option>
-                            </c:forEach>
-                        </form:select>
-                    </td>
-                </tr>
                 <tr><td></td></tr>
                 <tr><td></td></tr>
                 <tr><td></td></tr>

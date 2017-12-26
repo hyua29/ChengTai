@@ -65,8 +65,6 @@ public class AdController {
         System.out.println(searchObject);
         System.out.println("---------------------------");
 
-        model.addAttribute("dateToChoose", new DateToChoose());
-
         model.addAttribute("resultTotalInfo", resultTotalInfo);
 
         TotalInfo totalInfoToAdd = new TotalInfo();  // pass an object in which inputs are stored
