@@ -10,15 +10,12 @@ import database.data.tables.TotalInfo;
 import database.data.access.services.TotalInfoService;
 import helpers.DateToChoose;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import request.objects.SearchObject;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.xml.transform.Source;
-import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -40,6 +37,7 @@ public class AdController {
     @GetMapping("/search-result")
     public String searchData(Model model) {
         SearchObject searchObject = new SearchObject();  // pass an object in which inputs are stored
+
         model.addAttribute("searchObject", searchObject);
 
         model.addAttribute("resultTotalInfo", null);
@@ -55,13 +53,9 @@ public class AdController {
     show the results based on info provided by the users
      */
     @PostMapping("/search-result")
-    public String retrieveSearchResults(@ModelAttribute("searchObject") SearchObject searchObject,
-                                  Model model
-                                    ) {
-        System.out.println(searchObject.getYearFrom());
-
-
+    public String retrieveSearchResults(@ModelAttribute("searchObject") SearchObject searchObject, Model model) {
         List<TotalInfo> resultTotalInfo = null;
+
         if(!searchObject.isEmpty()) {
             resultTotalInfo = totalInfoService.searchTotalInfo(
                     searchObject.getcOrPSelect(), searchObject.getCtyOrPod().toUpperCase(),

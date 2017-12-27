@@ -25,7 +25,7 @@
     </c:choose>
     <br>
 
-    <span onclick="window.history.go(-2); refresh();"> Go Back To List</span>
+    <span onclick="window.history.go(-2);"> Go Back To List</span>
 </body>
 </html>
 

@@ -8,17 +8,13 @@ import java.util.Date;
 public class SearchObject {
 
     private Boolean Empty;
+
     private String sourceHb;
     private String cOrPSelect;
     private String ctyOrPod;
+
     private Date dateFrom;
     private Date dateTo;
-    private String yearFrom;
-    private String monthFrom;
-    private String DayFrom;
-    private String yearTo;
-    private String monthTo;
-    private String dayTo;
 
     public SearchObject() {
         this.Empty = true;
@@ -67,6 +63,8 @@ public class SearchObject {
     }
 
     public void setcOrPSelect(String cOrPSelect) {
+        if(!cOrPSelect.equals(""))
+            this.Empty = false;
         this.cOrPSelect = cOrPSelect;
     }
 
@@ -78,24 +76,18 @@ public class SearchObject {
         this.ctyOrPod = ctyOrPod;
     }
 
-
     public void setDateFrom(String dateFrom) {
-        if(dateFrom.equals("")) { // show all records if timeFrom not specified
+        if(dateFrom.equals("")) // show all records if timeFrom not specified
            this.dateFrom = parseDate("2016-01-01", true);
-        } else {
+        else
             this.dateFrom = parseDate(dateFrom, true);
-        }
-
     }
 
-
     public void setDateTo(String dateTo) {
-        if(dateTo.equals("")) { // show all records until now
+        if(dateTo.equals(""))  // show all records until now
             this.dateTo = new Date();
-        } else {
+         else
             this.dateTo = parseDate(dateTo, false);
-        }
-
     }
 
     public Date getDateFrom() {
@@ -110,54 +102,6 @@ public class SearchObject {
         return Empty;
     }
 
-    public String getYearFrom() {
-        return yearFrom;
-    }
-
-    public void setYearFrom(String yearFrom) {
-        this.yearFrom = yearFrom;
-    }
-
-    public String getMonthFrom() {
-        return monthFrom;
-    }
-
-    public void setMonthFrom(String monthFrom) {
-        this.monthFrom = monthFrom;
-    }
-
-    public String getDayFrom() {
-        return DayFrom;
-    }
-
-    public void setDayFrom(String dayFrom) {
-        DayFrom = dayFrom;
-    }
-
-    public String getYearTo() {
-        return yearTo;
-    }
-
-    public void setYearTo(String yearTo) {
-        this.yearTo = yearTo;
-    }
-
-    public String getMonthTo() {
-        return monthTo;
-    }
-
-    public void setMonthTo(String monthTo) {
-        this.monthTo = monthTo;
-    }
-
-    public String getDayTo() {
-        return dayTo;
-    }
-
-    public void setDayTo(String dayTo) {
-        this.dayTo = dayTo;
-    }
-
     @Override
     public String toString() {
         return "SearchObject{" +
@@ -170,9 +114,4 @@ public class SearchObject {
                 '}';
     }
 
-    public static void main(String[] args) {
-        SearchObject searchObject = new SearchObject();
-
-
-    }
 }

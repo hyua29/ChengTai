@@ -41,14 +41,24 @@
                     </td>
                     <td><form:input id="ctyOrPodSearch" path="ctyOrPod" placeholder="Country Or POD Name"/></td>
                 </tr>
+                <tr hidden="hidden">
+                    <td>From:</td>
+                    <td><form:input id="dateFrom" path="dateFrom" placeholder="yyyy-mm-dd" /> </td>
+                </tr>
+
+                <tr hidden="hidden">
+                    <td>To:</td>
+                    <td><form:input id="dateTo" path="dateTo" placeholder="yyyy-mm-dd" /> </td>
+                </tr>
+
                 <tr>
                     <td>From:</td>
-                    <td><form:input id="DateFrom" path="dateFrom" placeholder="yyyy-mm-dd" /> </td>
+                    <td><input id="from" type="date" onchange="replaceDateFrom();"></td>
                 </tr>
 
                 <tr>
                     <td>To:</td>
-                    <td><form:input id="DateTo" path="dateTo" placeholder="yyyy-mm-dd" /> </td>
+                    <td><input id="to" type="date" onchange="replaceDateTo();"></td>
                 </tr>
 
                 <tr><td></td></tr>
@@ -152,7 +162,7 @@
             </table>
         </div>
     </div>
-<input type="date">
+<button type="button" onclick="replaceDate();">click me </button>
 </body>
 
 <script type="text/javascript">
@@ -206,18 +216,14 @@
         }
     }
 
+    (function () {  //set default: 30 days from current time
+        var dateFrom = new Date();
+        window.document.getElementById("to").valueAsDate = dateFrom;
+        dateFrom.setDate(dateFrom.getDate() - 30);
+        window.document.getElementById("from").valueAsDate = dateFrom;
 
-    function popUpdateForm(TotalInfoToUpdate) {
-        var message = $("<div></div>").text(1000);
-        $("#test").after("");
-    };
 
-
-    //(function () {  //set default: 30 days from current time
-      //  var dateFrom = new Date();
-        //dateFrom.setDate(dateFrom.getDate() - 30);
-        //window.document.getElementById("calenderFrom").valueAsDate = dateFrom;
-    //})();
+    })();
 
     (function () {  // query source harbor
         console.log("search request sent");
@@ -264,6 +270,21 @@
         });
 
     })();
+
+    function replaceDateFrom () {
+        var from = $("#from").val();
+        $("#dateFrom").val(from);
+        var f = $("dateFrom").val();
+        console.log(from);
+    }
+
+    function replaceDateTo() {
+        var to = $("#to").val();
+        console.log(to);
+        $("#dateTo").val(to);
+        var t = $("#dateTo").val();
+        console.log(t);
+    }
 
 </script>
 

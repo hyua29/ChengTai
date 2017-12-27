@@ -62,10 +62,8 @@ public class JSONController {
     public @ResponseBody
     String AJAXDeletePod(@RequestBody String podName) {
 
-        System.out.println("____________________________");
         String podToDelete = podName.replace("_", " ").replace("\"", "");
         Boolean succeeded = podService.deletePodByName(podToDelete);
-        System.out.println(podToDelete);
         String respond;
         if (succeeded)
             respond = "{\"succeeded\":\"true\"}";
