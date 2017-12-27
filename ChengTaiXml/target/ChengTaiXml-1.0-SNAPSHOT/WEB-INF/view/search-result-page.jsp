@@ -64,6 +64,10 @@
         </div>
         <button id="addButton" type="button" onclick="onclickAdd()" >Add New Records</button>
         <button type="button" onclick="refresh()"> refresh</button>
+        <form action="${pageContext.request.contextPath}/upload/lane-info" method="post" enctype="multipart/form-data">
+            <input type="file" name="laneInfo"/>
+            <input type="submit" value="upload" />
+        </form>
         <div id="resultTable">
             <table>
                 <tr>

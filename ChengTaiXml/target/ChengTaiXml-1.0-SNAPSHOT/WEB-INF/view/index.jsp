@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
     <head>
@@ -17,6 +18,11 @@
     <form:form action="${pageContext.request.contextPath}/logout" method="POST"> <!-- from app's domain -->
         <input type="submit" value="logout"/>
     </form:form>
+
+    <c:url var="templateLink" value="${pageContext.request.contextPath}/download/lane-template">
+        <c:param name="fileName" value="test-file.txt"/>
+    </c:url>
+    <a href="${templateLink}"> Download </a>
 
     </body>
 

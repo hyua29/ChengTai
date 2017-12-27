@@ -14,6 +14,19 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="20971520"/> <!-- 20MB -->
+    </bean>
+
+    <!-- map 'java.lang.Exception' to Error.jsp
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <prop key="java.lang.Exception" >Error</prop>
+            </props>
+        </property>
+    </bean>
+    -->
     <mvc:resources mapping="/resources/**" location="WEB-INF/web-resources/" /> <!-- Not necessary but it's nice to address resources(css, images, etc) like this -->
 
 </beans>
