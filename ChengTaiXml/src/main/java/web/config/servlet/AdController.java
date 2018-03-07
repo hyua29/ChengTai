@@ -80,6 +80,7 @@ public class AdController {
     public String saveNewTotalInfo(@ModelAttribute("totalInfoToAdd") TotalInfo totalInfo,  // get attribute
                                    Model model) {
 
+        System.out.println(totalInfo.getImpInfo());
         Boolean transactionSucceeded = totalInfoService.saveTotalInfo(totalInfo);
 
         model.addAttribute("transactionSucceeded", transactionSucceeded);

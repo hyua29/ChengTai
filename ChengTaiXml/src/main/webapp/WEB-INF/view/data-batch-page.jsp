@@ -13,18 +13,22 @@
     <script src="${pageContext.request.contextPath}/resources/js/jquery-1.12.4.js" ></script>
     <script src="${pageContext.request.contextPath}/resources/js/helpers.js" ></script>
 
+    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/databatch.css" />
+
 </head>
 
 <body>
 
 <div style="width: 66%; float: left;">
-    <div style="float: left; width: 50%;">
+
+    <div class = table style="float: left; width: 47%;">
         <form action="${pageContext.request.contextPath}/admin/data-batch" method="post">
         <table id="deletable">
             <button type="button" onclick="showForm('#podForm')">Add</button>
             <tr>
                 <th>Counties</th>
                 <th>PODs</th>
+                <th>Action</th>
             </tr>
             <tr id="podForm" hidden="hidden">
                 <td hidden="hidden"><input id="isPod" name="isPod" value="false"></td>
@@ -43,12 +47,13 @@
         </form>
     </div>
 
-    <div style="float: right;width: 50%">
+    <div class = table  style="float: right;width: 50%">
         <form action="${pageContext.request.contextPath}/admin/data-batch" method="post">
         <table>
             <button type="button" onclick="showForm('#harborForm')">Add</button>
             <tr>
                 <th>Source Harbors</th>
+                <th>Action</th>
             </tr>
             <tr id="harborForm"  hidden="hidden">
                 <td hidden="hidden"><input id="isHarbor" name="isHarbor" value="false"></td>
@@ -66,12 +71,13 @@
     </div>
 </div>
 
-    <div style="float: right; width: 33%;">
+    <div class = table  style="float: right; width: 33%;">
         <form action="${pageContext.request.contextPath}/admin/data-batch" method="post">
         <table>
             <button type="button" onclick="showForm('#carrierForm')">Add</button>
             <tr>
-                <th>Carriers: </th>
+                <th>Carriers </th>
+                <th>Action</th>
             </tr>
             <tr id="carrierForm" class="form" hidden="hidden">
                 <td hidden="hidden"><input id="isCarrier" name="isCarrier" value="false"></td>

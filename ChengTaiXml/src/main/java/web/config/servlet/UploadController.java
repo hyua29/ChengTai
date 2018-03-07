@@ -15,7 +15,7 @@ import java.util.Scanner;
 @RequestMapping("/upload")
 public class UploadController {
 
-    private final String FILE_DIRECTORY = "/home/cooper/Desktop/";
+    private final String FILE_DIRECTORY = "/home/cooper/Desktop/"; // directory to which the file will be saved
 
     @PostMapping("/lane-info")
     public String handleLaneInfoUpload(@RequestParam("laneInfo") CommonsMultipartFile multipartFile) {  // can  also obtain file with 'request.getFile('name')'

@@ -21,6 +21,10 @@
     <script src="${pageContext.request.contextPath}/resources/js/jquery-ui.js" ></script>
     <script src="${pageContext.request.contextPath}/resources/js/helpers.js" ></script>
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
 </head>
 <body>
     <div>
@@ -66,7 +70,7 @@
                 <tr><td></td></tr>
                 <tr>
                     <td></td>
-                    <td><input style="float: right;" type="submit" value="Search"></td>
+                    <td><input style="float: right;  background: #337ab7; color: #FFFFFF; padding: 3%" type="submit" value="Search"></td>
                 </tr>
                 </tbody>
             </table>
@@ -74,6 +78,10 @@
         </div>
         <button id="addButton" type="button" onclick="onclickAdd()" >Add New Records</button>
         <button type="button" onclick="refresh()"> refresh</button>
+        <c:url var="templateLink" value="${pageContext.request.contextPath}/download/lane-template">
+            <c:param name="fileName" value="test-file.txt"/>
+        </c:url>
+        <a href="${templateLink}"> Download Template </a>
         <form action="${pageContext.request.contextPath}/upload/lane-info" method="post" enctype="multipart/form-data">
             <input type="file" name="laneInfo"/>
             <input type="submit" value="upload" />
@@ -152,17 +160,15 @@
                         <td>${totalInfo.TT}</td>
                         <td>${totalInfo.extraInfo}</td>
                         <td>
-                            <a href="${updateLink}"> Update </a> <span class="action" onclick="popFieldsForUpdate(${totalInfo.id})">Update</span>
+                            <a href="${updateLink}"> Update </a>
                             |
-                            <a href="${deleteLink}" onclick=
-                                    "showDeleteWarning()">Delete</a>
+                            <a href="${deleteLink}" onclick="showDeleteWarning()">Delete </a>
                         </td>
                     </tr>
                 </c:forEach>
             </table>
         </div>
     </div>
-<button type="button" onclick="replaceDate();">click me </button>
 </body>
 
 <script type="text/javascript">
