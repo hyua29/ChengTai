@@ -66,6 +66,10 @@ public class TotalInfo {
     private Date lastModified;
 
     public TotalInfo() {
+        this.pod = "";
+        this.sourceHarbor = "";
+        this.carrier = "";
+        this.country = "";
     }
 
     public TotalInfo(String pod, String harbor, String carrier, String country) {
@@ -84,7 +88,7 @@ public class TotalInfo {
     }
 
     public String getPod() {
-        return pod;
+        return pod.toUpperCase();
     }
 
     public void setPod(String pod) {
@@ -92,7 +96,7 @@ public class TotalInfo {
     }
 
     public String getSourceHarbor() {
-        return sourceHarbor;
+        return sourceHarbor.toUpperCase();
     }
 
     public void setSourceHarbor(String sourceHarbor) {
@@ -100,7 +104,7 @@ public class TotalInfo {
     }
 
     public String getCarrier() {
-        return carrier;
+        return carrier.toUpperCase();
     }
 
     public void setCarrier(String carrier) {
@@ -108,7 +112,7 @@ public class TotalInfo {
     }
 
     public String getCountry() {
-        return country;
+        return country.toUpperCase();
     }
 
     public void setCountry(String country) {

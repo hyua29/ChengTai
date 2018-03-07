@@ -5,6 +5,7 @@
         <title>ChengTai</title>
     </head>
     <body>
+    <div style="text-align:center; margin-left:22%; margin-top: 10%; width:55%">
     <h3>Welcome </h3>
 
     <!-- add log out. This will be sent to in-build spring security framework-->
@@ -15,15 +16,8 @@
     </div>
 
     <br>
-    <form:form action="${pageContext.request.contextPath}/logout" method="POST"> <!-- from app's domain -->
-        <input type="submit" value="logout"/>
-    </form:form>
 
-    <c:url var="templateLink" value="${pageContext.request.contextPath}/download/lane-template">
-        <c:param name="fileName" value="test-file.txt"/>
-    </c:url>
-    <a href="${templateLink}"> Download </a>
-
+    </div>
     </body>
 
 </html>

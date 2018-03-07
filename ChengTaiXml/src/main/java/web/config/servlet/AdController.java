@@ -25,11 +25,11 @@ public class AdController {
     @Autowired
     private TotalInfoService totalInfoService;
     @Autowired
-    PODService podService;
+    private PODService podService;
     @Autowired
-    HarborService harborService;
+    private HarborService harborService;
     @Autowired
-    CarrierService carrierService;
+    private CarrierService carrierService;
 
     /*
      show a search page
