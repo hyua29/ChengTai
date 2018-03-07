@@ -1,21 +1,20 @@
 package app;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import redundant.TestIpm;
 import test.aop.AccountAOP;
 import web.config.aop.AOPConfig;
 
+import java.io.File;
+
 public class Main {
+
+
     public static void main(String[] args) {
+        DateTest dateTest = new DateTest();
 
-        // read the web.config
-        AnnotationConfigApplicationContext context =
-                new AnnotationConfigApplicationContext(AOPConfig.class);
-        // get Bean
-        AccountAOP accountAOP = context.getBean("accountAOP", AccountAOP.class);
-        // call method of the bean
-        accountAOP.addAccount("This is a message");
+        System.out.println(dateTest.getName());
 
-        context.close();
 
     }
 }

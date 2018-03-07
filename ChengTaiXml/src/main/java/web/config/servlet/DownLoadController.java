@@ -15,17 +15,17 @@ import java.io.IOException;
 @Controller
 @RequestMapping("/download")
 public class DownLoadController {
-    private final String FILE_DIRECTORY = "/home/cooper/Desktop/";
+    //private final String FILE_DIRECTORY = "/home/cooper/Desktop/";
 
     @RequestMapping("/lane-template")
     public ResponseEntity<byte[]> downloadTemplate (@RequestParam("fileName") String filename) throws IOException {
-
-        File file = new File(FILE_DIRECTORY + filename);
-        String downloadFielName = new String(filename.getBytes("UTF-8"),"iso-8859-1");
+        File template =  new File(getClass().getClassLoader().getResource("template.xlsx").getFile());
+        // String downloadFielName = new String(filename.getBytes("UTF-8"),"iso-8859-1");
+        String downloadFileName = "template.xlsx";  // default name of the file
         HttpHeaders headers = new HttpHeaders();
-        headers.setContentDispositionFormData("attachment", downloadFielName);
+        headers.setContentDispositionFormData("attachment", downloadFileName);
         headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
-        return new ResponseEntity<byte[]>(FileUtils.readFileToByteArray(file),
+        return new ResponseEntity<byte[]>(FileUtils.readFileToByteArray(template),
                 headers, HttpStatus.CREATED);
     }
 }

@@ -8,23 +8,13 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.io.File;
+
 
 public class DateTest {
-    public static void main(String[] args) {
-        Gson g = new Gson();
-        POD p = new POD();
-        p.setCountry("aaa");
-        p.setPODName("bbb");
+    File template =  new File(getClass().getClassLoader().getResource("template.xlsx").getFile());
 
-        String podJson = g.toJson(p);
-
-        ClassPathXmlApplicationContext context =
-                new ClassPathXmlApplicationContext(
-                        "applicationContext.xml","databaseConfig.xml");
-        TotalInfoIpm totalInfoIpm = context.getBean("totalInfoIpm", TotalInfoIpm.class);
-
-        TotalInfo totalInfoToAdd = new TotalInfo("BANGKO","HUANGPU", "COSCO", "CHINA");
-        totalInfoIpm.saveTotalInfo(totalInfoToAdd);
-
+    public String getName() {
+        return template.getName();
     }
 }
