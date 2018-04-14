@@ -93,7 +93,7 @@
         <div id="resultTable">
             <table>
                 <tr>
-                    <th>LAST MODIFIED</th>
+                    <th>CREATED AT</th>
                     <th>PODS</th>
                     <th>SOURCE HARBORS</th>
                     <th>COUNTRIES</th>
@@ -111,8 +111,7 @@
                     <th>ACTION</th>
                 </tr>
 
-                <div id='newInfo'>
-                    <form:form hidden="hidden" action='${pageContext.request.contextPath}/admin/updateTotalInfo' modelAttribute='totalInfoToAdd' method='post'>
+                    <form:form hidden="hidden" id='newInfo' action='${pageContext.request.contextPath}/admin/updateTotalInfo' modelAttribute='totalInfoToAdd' method='post'>
                         <tbody id="add" hidden="hidden" >
                         <form:hidden path='id' />
                         <tr>
@@ -135,8 +134,6 @@
                         </tr>
                         </tbody>
                     </form:form>
-                </div>
-
 
                 <c:forEach var="totalInfo" items="${resultTotalInfo}">
 
@@ -149,7 +146,7 @@
                         <c:param name="totalInfoId" value="${totalInfo.id}"/>
                     </c:url>
                     <tr>
-                        <td>${totalInfo.lastModified}</td>
+                        <td>${totalInfo.createdAt}</td>
                         <td>${totalInfo.pod}</td>
                         <td>${totalInfo.sourceHarbor}</td>
                         <td>${totalInfo.country}</td>
@@ -178,10 +175,11 @@
                 </c:if>
             </div>
         </div>
-    </div>
 
+    </div>
+<footer style="padding:2px; width:98%; font-size: 70%; position: absolute; bottom: 2px; background-color: #343434; color: white;">上海诚泰船务有限公司（广州） &copy; 2003</footer>
 </body>
-<footer style="padding:5px; width: 100%; position: absolute; bottom: 5px; background-color: #343434; color: white;">上海诚泰船务有限公司（广州） &copy; 2003</footer>
+
 <script type="text/javascript">
     var countries = [];
     var pods = [];

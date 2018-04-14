@@ -21,6 +21,6 @@
 
     </div>
 
+    <footer style="padding:2px; width:98%; font-size: 70%; position: absolute; bottom: 2px; background-color: #343434; color: white;">上海诚泰船务有限公司（广州） &copy; 2003</footer>
     </body>
-    <footer style="padding:5px; width: 100%; position: absolute; bottom: 5px; background-color: #343434; color: white;">上海诚泰船务有限公司（广州） &copy; 2003</footer>
 </html>
