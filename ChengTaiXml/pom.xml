@@ -10,6 +10,7 @@
     <packaging>war</packaging>
 
 
+
     <!-- search.maven.org -->
     <dependencies>
         <!--  Spring  -->
@@ -18,8 +19,10 @@
             <artifactId>spring-core</artifactId>
             <version>5.0.2.RELEASE</version>
         </dependency>
+
+
         <dependency>
-            <groupId>org.springframework</groupId>
+            <groupId>org.springframework</groupId> <!-- provide @Transactional annotation -->
             <artifactId>spring-tx</artifactId>
             <version>5.0.2.RELEASE</version>
         </dependency>
@@ -43,12 +46,13 @@
             <artifactId>spring-beans</artifactId>
             <version>5.0.2.RELEASE</version>
         </dependency>
-
         <dependency>
             <groupId>org.springframework</groupId>  <!-- city/organization -->
             <artifactId>spring-webmvc</artifactId>  <!-- street/app name -->
             <version>5.0.2.RELEASE</version>  <!-- house/version -->
         </dependency>
+
+
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-web</artifactId>
@@ -59,21 +63,20 @@
             <artifactId>spring-security-config</artifactId>
             <version>4.2.3.RELEASE</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-config</artifactId>
-            <version>4.2.3.RELEASE</version>
-        </dependency>
+
+
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>2.4</version>
         </dependency>
+
         <dependency>
             <groupId>commons-fileupload</groupId>
             <artifactId>commons-fileupload</artifactId>
             <version>1.3.1</version>
         </dependency>
+
         <!--  Servlet, JSP and JSTL support  -->
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -90,12 +93,8 @@
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>3.8.1</version>
-            <scope>test</scope>
-        </dependency>
+
+        <!-- db support -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
@@ -107,6 +106,13 @@
             <version>5.0.12</version>
         </dependency>
         <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-c3p0</artifactId>
+            <version>5.2.12.Final</version>
+        </dependency>
+
+
+        <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
             <version>1.8.13</version>
@@ -116,11 +122,7 @@
             <artifactId>commons-logging</artifactId>
             <version>1.2</version>
         </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-c3p0</artifactId>
-            <version>5.2.12.Final</version>
-        </dependency>
+
 
         <!-- need these to convert json to object -->
         <dependency>
@@ -128,18 +130,18 @@
             <artifactId>jackson-core</artifactId>
             <version>2.9.3</version>
         </dependency>
-
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>2.9.3</version>
         </dependency>
-
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
             <version>2.9.3</version>
         </dependency>
+
+
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>jquery</artifactId>
@@ -150,6 +152,8 @@
             <artifactId>bootstrap</artifactId>
             <version>3.3.5</version>
         </dependency>
+
+
         <dependency>
             <groupId>com.solidfire.code.gson</groupId>
             <artifactId>gson</artifactId>
@@ -161,6 +165,13 @@
             <artifactId>poi-ooxml</artifactId>
             <version>3.9</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk</artifactId>
+            <version>1.11.297</version>
+        </dependency>
+
     </dependencies>
 
 

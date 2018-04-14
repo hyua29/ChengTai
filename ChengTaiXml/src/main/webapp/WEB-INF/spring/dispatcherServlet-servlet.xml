@@ -27,6 +27,6 @@
         </property>
     </bean>
     -->
-    <mvc:resources mapping="/resources/**" location="WEB-INF/web-resources/" /> <!-- Not necessary but it's nice to address resources(css, images, etc) like this -->
+    <mvc:resources mapping="/resources/**" location="/WEB-INF/web-resources/" /> <!-- Not necessary but it's nice to address resources(css, images, etc) like this -->
 
 </beans>

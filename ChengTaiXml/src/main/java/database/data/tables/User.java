@@ -3,13 +3,11 @@ package database.data.tables;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.List;
-
 /*
 This class is a template of how a class should be annotated so that it can be stored and
 retrieved from database by hibernate
@@ -245,7 +243,7 @@ public class User {
             factory.close();
         }
     }
-
+/*
     public static void main(String[] args) {
 
         User.push();
@@ -255,4 +253,5 @@ public class User {
         // User.updateAll();
         // User.deleteAll();
     }
+    */
 }

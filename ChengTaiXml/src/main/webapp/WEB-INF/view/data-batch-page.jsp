@@ -19,6 +19,9 @@
 
 <body>
 
+<div>
+    <<a href="${pageContext.request.contextPath}/index">Main Page</a>>
+</div>
 <div style="width: 66%; float: left;">
 
     <div class = table style="float: left; width: 47%;">

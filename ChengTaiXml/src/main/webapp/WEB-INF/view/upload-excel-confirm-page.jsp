@@ -13,7 +13,7 @@
 
 <html>
 <head>
-    <title>Title</title>
+    <title>ChengTai</title>
     <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/form-styles.css" />
 <style>
     #uploadTable{
@@ -62,10 +62,9 @@
 <body>
 
 <div id="uploadTable">
-
 <table>
     <tr>
-
+        <th>Row</th>
         <th>PODS</th>
         <th>SOURCE HARBORS</th>
         <th>COUNTRIES</th>
@@ -85,6 +84,7 @@
     <c:forEach var="invalidToInfo" items="${invalidToInfoList}">
 
         <tr style="color: red">
+            <td>${invalidToInfo.rowNumber}</td>
             <td>${invalidToInfo.sourceHarbor}</td>
             <td>${invalidToInfo.pod}</td>
             <td>${invalidToInfo.country}</td>
@@ -105,6 +105,7 @@
     <c:forEach var="legitInfo" items="${legitToInfoList}">
 
         <tr>
+            <td>${legitInfo.rowNumber}</td>
             <td>${legitInfo.sourceHarbor}</td>
             <td>${legitInfo.pod}</td>
             <td>${legitInfo.country}</td>
@@ -123,7 +124,23 @@
     </c:forEach>
 
 </table>
+
+
+
+    <c:if test="${legitToInfoList.size() == 0 && invalidToInfoList.size() == 0}">
+        <div style="color: red"> No values have been read</div>
+        <div style="color: red"> Please make sure the uploaded file is valid</div>
+    </c:if>
 </div>
- <a style="float: right; " href="${pageContext.request.contextPath}/upload/store"> Confirm </a>
+<c:choose>
+    <c:when test="${legitToInfoList.size() == 0 && invalidToInfoList.size() == 0}">
+        <span style="float: right; " onclick="window.history.go(-1);">返回 </span>
+    </c:when>
+    <c:otherwise>
+        <a style="float: right; " href="${pageContext.request.contextPath}/upload/store"> 确定 </a>
+    </c:otherwise>
+</c:choose>
+
+
 </body>
 </html>

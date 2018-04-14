@@ -17,6 +17,8 @@ import request.objects.SearchObject;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+// TODO: add ability to import fundamental information in bulk
+// TODO: hide error message
 
 @Controller
 @RequestMapping("/admin")
@@ -76,9 +78,10 @@ public class AdController {
         return "search-result-page";
     }
 
-    @PostMapping("/saveTotalInfo")
-    public String saveNewTotalInfo(@ModelAttribute("totalInfoToAdd") TotalInfo totalInfo,  // get attribute
+    @PostMapping("/updateTotalInfo")
+    public String updateAndAddTotalInfo(@ModelAttribute("totalInfoToAdd") TotalInfo totalInfo,  // get attribute
                                    Model model) {
+
 
         System.out.println(totalInfo.getImpInfo());
         Boolean transactionSucceeded = totalInfoService.saveTotalInfo(totalInfo);
@@ -86,6 +89,19 @@ public class AdController {
         model.addAttribute("transactionSucceeded", transactionSucceeded);
 
         return "update-transaction-confirm-page";
+    }
+
+    @PostMapping("/addNewTotalInfo")
+    public String addNewTotalInfo(@ModelAttribute("totalInfoToAdd") TotalInfo totalInfo,  // get attribute
+                                   Model model) {
+
+
+        System.out.println(totalInfo.getImpInfo());
+        Boolean transactionSucceeded = totalInfoService.saveTotalInfo(totalInfo);
+
+        model.addAttribute("transactionSucceeded", transactionSucceeded);
+
+        return "add-transaction-confirm-page";
     }
 
     /*
@@ -98,7 +114,7 @@ public class AdController {
 
         model.addAttribute("totalInfoToAdd", totalInfo);
 
-        return "new-total-info-form-page";
+        return "update-total-info-form-page";
     }
     
     @GetMapping("/delete")
@@ -152,6 +168,12 @@ public class AdController {
 
         return "data-batch-page";
     }
+
+    /*
+    Potentially useful method
+    @RequestMapping(value = "/messages/{userId}/{messageId}", method = RequestMethod.GET)
+    public Message getMessage(@PathVariable("userId") String uid,
+     */
 }
 
 

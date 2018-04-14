@@ -14,6 +14,7 @@
 <head>
     <title>ChengTai</title>
 
+    <!-- ${pageContext.request.contextPath} -->
     <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/jquery-ui.css" />
     <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/form-styles.css" />
 
@@ -27,6 +28,9 @@
 
 </head>
 <body>
+<div>
+    <<a href="${pageContext.request.contextPath}/index">Main Page</a>>
+</div>
     <div>
         <div id="searchTable">
         <form:form action="${pageContext.request.contextPath}/admin/search-result" modelAttribute='searchObject' method="post">
@@ -108,7 +112,7 @@
                 </tr>
 
                 <div id='newInfo'>
-                    <form:form hidden="hidden" action='${pageContext.request.contextPath}/admin/saveTotalInfo' modelAttribute='totalInfoToAdd' method='post'>
+                    <form:form hidden="hidden" action='${pageContext.request.contextPath}/admin/updateTotalInfo' modelAttribute='totalInfoToAdd' method='post'>
                         <tbody id="add" hidden="hidden" >
                         <form:hidden path='id' />
                         <tr>
@@ -133,14 +137,15 @@
                     </form:form>
                 </div>
 
+
                 <c:forEach var="totalInfo" items="${resultTotalInfo}">
 
-                    <!-- url for update and delete -->
-                    <c:url var="updateLink" value="${pageContext.request.contextPath}/admin/show-form-for-update">
+                    <!-- url for update and delete --> <!-- domain already embedded -->
+                    <c:url var="updateLink" value="/admin/show-form-for-update">
                         <c:param name="totalInfoId" value="${totalInfo.id}"/>
                     </c:url>
 
-                    <c:url var="deleteLink" value="${pageContext.request.contextPath}/admin/delete">
+                    <c:url var="deleteLink" value="/admin/delete">
                         <c:param name="totalInfoId" value="${totalInfo.id}"/>
                     </c:url>
                     <tr>
@@ -162,15 +167,21 @@
                         <td>
                             <a href="${updateLink}"> Update </a>
                             |
-                            <a href="${deleteLink}" onclick="showDeleteWarning()">Delete </a>
+                            <a href="${deleteLink}" >Delete </a>
                         </td>
                     </tr>
                 </c:forEach>
             </table>
+            <div style="color: red">
+                <c:if test="${resultTotalInfo.size() == 0}">
+                    No results found
+                </c:if>
+            </div>
         </div>
     </div>
-</body>
 
+</body>
+<footer style="padding:5px; width: 100%; position: absolute; bottom: 5px; background-color: #343434; color: white;">上海诚泰船务有限公司（广州） &copy; 2003</footer>
 <script type="text/javascript">
     var countries = [];
     var pods = [];
@@ -183,7 +194,7 @@
         $.ajax({
             type: "POST",
             contentType: "application/json",
-            url: "${pageContext.request.contextPath}/json/update-total-info",
+            url: "/json/update-total-info",
             data: JSON.stringify(id),
             dataType: 'json',  // specify respond dateFrom type
             timeOut: 10000,

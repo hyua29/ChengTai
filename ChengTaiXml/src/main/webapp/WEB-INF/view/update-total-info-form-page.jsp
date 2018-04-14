@@ -10,12 +10,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>ChengTai</title>
 </head>
 <body>
     <div id='newInfo'>
-        <form:form action='${pageContext.request.contextPath}/admin/saveTotalInfo' modelAttribute='totalInfoToAdd' method='post'>
-            <table>
+        <form:form action='${pageContext.request.contextPath}/admin/updateTotalInfo' modelAttribute='totalInfoToAdd' method='post'>
+            <table style="margin-left: auto; margin-right: auto; border: 1px solid gray; ">
                 <tbody>
                     <form:hidden path='id' />
                     <tr>
@@ -24,7 +24,7 @@
                     </tr>
                     <tr>
                         <td>SOURCE HARBOR: </td>
-                        <td><input:input path='sourceHb' /> </td>
+                        <td><input:input path='sourceHarbor' /> </td>
                     </tr>
                     <tr>
                         <td>COUNTRY: </td>
@@ -74,10 +74,17 @@
                         <td>EXTRA INFO: </td>
                         <td><form:input path='extraInfo'/> </td>
                     </tr>
-
-                <tr>
-                    <td><input type='submit' value='Confirm'></td>
-                </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr><td></td>
+                        <td><input style="float: right" type='submit' value='确认'></td>
+                    </tr>
                 </tbody>
 
             </table>
@@ -85,6 +92,7 @@
         </form:form>
 
     </div>
+
 
 </body>
 </html>

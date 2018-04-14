@@ -9,21 +9,22 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>ChengTai</title>
 </head>
 <body>
+<div style="text-align:center; margin-left:22%; margin-top: 10%; width:55%">
 <c:choose>
     <c:when test="${transactionSucceeded}">
-        succeeded
+        删除成功
     </c:when>
 
     <c:otherwise>
-        failed(unknown errors)
+        删除失败(unknown errors)
     </c:otherwise>
 </c:choose>
 <br>
-<span onclick="window.history.go(-2);"> Go Back To List</span>
-
+<span onclick="window.history.go(-2);"> 返回</span>
+</div>
 
 </body>
 </html>

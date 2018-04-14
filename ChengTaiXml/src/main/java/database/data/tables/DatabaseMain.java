@@ -6,7 +6,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 public class DatabaseMain {
-
+/*
     public static void main(String[] args) {
 
         SessionFactory factory = new Configuration()
@@ -47,7 +47,7 @@ public class DatabaseMain {
             tempPOD.add(t);
 
             session.save(t);
-            */
+
             session.getTransaction().commit();
             session.close();
         } catch (Exception e){
@@ -64,5 +64,5 @@ public class DatabaseMain {
 
     }
 
-
+*/
 }

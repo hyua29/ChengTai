@@ -4,6 +4,7 @@ package excel;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,9 +18,9 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelUtil {
-    List<TotalInfo> rawToInfo;
-    List<TotalInfo> legitToInfo;
-    List<TotalInfo> invalidToInfo;
+    private List<TotalInfo> rawToInfo;
+    private List<TotalInfo> legitToInfo;
+    private List<TotalInfo> invalidToInfo;
 
     public ExcelUtil() {
         rawToInfo = new ArrayList<TotalInfo>();
@@ -27,28 +28,28 @@ public class ExcelUtil {
         invalidToInfo = new ArrayList<TotalInfo>();
     }
 
-    public void loadExcel (File file) {
+    public void loadExcel (String fileName, InputStream is) {
 
-        if (file.getName().endsWith("xlsx"))
-            loadExcelXlsx(file);
+        if (fileName.endsWith("xlsx"))
+            loadExcelXlsx(is);
         
-        if (file.getName().endsWith("xls"))
-            loadExcelXls(file);
+        if (fileName.endsWith("xls"))
+            loadExcelXls(is);
 
         return;
     }
 
-    private void loadExcelXls(File file) {
+    private void loadExcelXls(InputStream is) {
         return;
     }
 
-    private void loadExcelXlsx(File file) {
+    private void loadExcelXlsx(InputStream is) {
         invalidToInfo = new ArrayList<TotalInfo>();
         legitToInfo = new ArrayList<TotalInfo>();
 
         XSSFWorkbook wb = null;
         try {
-            wb = new XSSFWorkbook(new FileInputStream(file));
+            wb = new XSSFWorkbook(is);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -64,6 +65,7 @@ public class ExcelUtil {
         int NUM_OF_CLOS = 13;
         for(int i=0;i<numOfRows + 1;i++) {
             TotalInfo totalInfo = new TotalInfo();
+            totalInfo.setRowNumber(i+1);
             XSSFRow row = sheet.getRow(i);
 
             if(row == null)

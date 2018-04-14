@@ -64,12 +64,17 @@ public class TotalInfo {
     @Column(name = "last_modified")
     @JsonView(View.Public.class)
     private Date lastModified;
+    @Column(name = "excel_row")
+    @JsonView(View.Public.class)
+    private int rowNumber;
 
     public TotalInfo() {
         this.pod = "";
         this.sourceHarbor = "";
         this.carrier = "";
         this.country = "";
+        this.createdAt = new Date();
+        this.lastModified = new Date();
     }
 
     public TotalInfo(String pod, String harbor, String carrier, String country) {
@@ -205,6 +210,22 @@ public class TotalInfo {
 
     public Date getCreatedAt() {
         return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public void setLastModified(Date lastModified) {
+        this.lastModified = lastModified;
+    }
+
+    public int getRowNumber() {
+        return rowNumber;
+    }
+
+    public void setRowNumber(int rowNumber) {
+        this.rowNumber = rowNumber;
     }
 
     @Override

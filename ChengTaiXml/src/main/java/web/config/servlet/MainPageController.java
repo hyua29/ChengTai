@@ -23,15 +23,4 @@ public class MainPageController {
         return "index";
     }
 
-    @GetMapping("/t")
-    public String test(Model model) {
-
-        SearchObject searchObject = new SearchObject();  // pass an object in which inputs are stored
-        model.addAttribute("searchObject", searchObject);
-
-        return "index";
-    }
-
-
-
 }
